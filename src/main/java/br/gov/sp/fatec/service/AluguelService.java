@@ -6,13 +6,14 @@ import br.gov.sp.fatec.domain.response.AluguelResponse;
 import java.util.List;
 
 public interface AluguelService {
+
     AluguelResponse save(AluguelRequest aluguelRequest);
 
     AluguelResponse findById(Long id);
 
     List<AluguelResponse> findAll();
 
-    void updateById(Long id, AluguelUpdateRequest aluguelUpdateRequest);
+    boolean updateById(Long id, AluguelUpdateRequest aluguelUpdateRequest);
 
-    void deleteById(Long id);
+    boolean deleteById(Long id);
 }

@@ -12,7 +12,7 @@ public interface CarroService {
 
     List<CarroResponse> findAll();
 
-    void updateById(Long id, CarroUpdateRequest carroUpdateRequest);
+    boolean updateById(Long id, CarroUpdateRequest carroUpdateRequest);
 
-    void deleteById(Long id);
+    boolean deleteById(Long id);
 }

@@ -18,26 +18,43 @@ public class CarroControllerImpl implements CarroController {
 
     @Override
     public ResponseEntity<CarroResponse> save(CarroRequest carro) {
-        return null;
+        CarroResponse savedCarro = carroService.save(carro);
+        return ResponseEntity.status(201).body(savedCarro);
     }
 
     @Override
     public ResponseEntity<CarroResponse> findById(Long id) {
-        return null;
+        CarroResponse carro = carroService.findById(id);
+        if (carro != null) {
+            return ResponseEntity.ok(carro);
+        } else {
+            return ResponseEntity.status(404).body(null);
+        }
     }
 
     @Override
     public ResponseEntity<List<CarroResponse>> findAll() {
-        return null;
+        List<CarroResponse> carros = carroService.findAll();
+        return ResponseEntity.ok(carros);
     }
 
     @Override
     public ResponseEntity<Void> updateById(Long id, CarroUpdateRequest request) {
-        return null;
+        boolean updated = carroService.updateById(id, request);
+        if (updated) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.status(404).build();
+        }
     }
 
     @Override
     public ResponseEntity<Void> deleteById(Long id) {
-        return null;
+        boolean deleted = carroService.deleteById(id);
+        if (deleted) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.status(404).build();
+        }
     }
 }

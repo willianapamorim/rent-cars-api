@@ -12,7 +12,7 @@ public interface ClienteService {
 
     List<ClienteResponse> findAll();
 
-    void updateById(Long id, ClienteUpdateRequest clienteUpdateRequest);
+    boolean updateById(Long id, ClienteUpdateRequest clienteUpdateRequest);
 
-    void deleteById(Long id);
+    boolean deleteById(Long id);
 }
